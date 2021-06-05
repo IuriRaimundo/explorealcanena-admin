@@ -1,0 +1,10 @@
+#date-time-picker {
+  display: inline-flex;
+}
+
+#date-time-picker input:nth-child(1) {
+  width: 9rem;
+}
+#date-time-picker input:nth-child(2) {
+  width: 6rem;
+}

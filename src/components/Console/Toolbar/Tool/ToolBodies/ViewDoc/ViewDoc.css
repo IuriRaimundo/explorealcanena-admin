@@ -1,0 +1,22 @@
+.view-doc-ul {
+  margin: 0;
+  padding: 1rem 2rem 1rem 2rem;
+  background-color: #fafafa;
+  max-height: 50rem;
+  list-style-type: none;
+}
+.view-doc-ul h1,
+.view-doc-ul p {
+  margin: 0;
+  padding: 0.3rem 0 0.3rem 0;
+}
+.view-doc-ul h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.view-doc-ul li {
+  padding-bottom: 1rem;
+}
+.view-doc-ul li:last-of-type {
+  padding: 0;
+}
