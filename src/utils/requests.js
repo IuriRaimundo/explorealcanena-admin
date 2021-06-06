@@ -1,6 +1,6 @@
 export const request = (method, route, data, token) => {
   return new Promise((resolve, reject) => {
-    let url = `http://localhost:3000/api/admin/${route}`;
+    let url = `https://explorealcanena.herokuapp.com/api/admin/${route}`;
     const xhr = new XMLHttpRequest();
     xhr.open(method, url);
     xhr.setRequestHeader('Content-type', 'application/json');

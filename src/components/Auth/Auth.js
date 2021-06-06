@@ -9,7 +9,9 @@ import { request } from '../../utils/utils';
 import background from '../../images/background.jpg';
 
 function Auth() {
+  const [feedback, setFeedback] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { setToken } = useAuthContext();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -32,7 +34,13 @@ function Auth() {
         setIsLoggedIn(true);
       })
       .catch((err) => {
-        console.log(err);
+        setFeedback(err);
+        setTimeout(() => {
+          setFeedback();
+        }, 5000);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -51,7 +59,12 @@ function Auth() {
     >
       <div className='auth-login'>
         <h3>Inicie sessão como administrador</h3>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={(e) => {
+            setIsLoading(true);
+            handleSubmit(e);
+          }}
+        >
           <ul>
             <li>
               <label htmlFor='email'>Email</label>
@@ -65,9 +78,18 @@ function Auth() {
             <li>
               <input type='password' ref={passwordRef} name='password' />
             </li>
+            {feedback && <li className='auth-feedback'>{feedback}</li>}
             <li>
               <button type='submit'>Iniciar sessão</button>
             </li>
+            {isLoading && (
+              <li className='auth-loading'>
+                <span className='loading-text'>A aguardar resposta</span>
+                <span className='loading-span'></span>
+                <span className='loading-span'></span>
+                <span className='loading-span'></span>
+              </li>
+            )}
           </ul>
         </form>
       </div>
