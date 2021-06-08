@@ -7,6 +7,7 @@ import ServicesInput from './ServicesInput';
 import ScheduleInput from './ScheduleInput';
 
 function UpdateDocPlaces({ setAllowSubmit, setToolResult, selection }) {
+  console.log(selection.horário);
   const [formInput, setFormInput] = useState({
     id: selection.id,
     nome: selection.nome,
@@ -25,24 +26,24 @@ function UpdateDocPlaces({ setAllowSubmit, setToolResult, selection }) {
     serviços: selection.serviços,
     horário: {
       segundaFeira: {
-        abre: selection.horário.segundaFeira ? selection.horário.segundaFeira[0] : '',
-        fecha: selection.horário.segundaFeira ? selection.horário.segundaFeira[1] : '',
+        abre: selection.horário['segunda-feira'] ? selection.horário['segunda-feira'][0] : '',
+        fecha: selection.horário['segunda-feira'] ? selection.horário['segunda-feira'][1] : '',
       },
       terçaFeira: {
-        abre: selection.horário.terçaFeira ? selection.horário.terçaFeira[0] : '',
-        fecha: selection.horário.terçaFeira ? selection.horário.terçaFeira[1] : '',
+        abre: selection.horário['terça-feira'] ? selection.horário['terça-feira'][0] : '',
+        fecha: selection.horário['terça-feira'] ? selection.horário['terça-feira'][1] : '',
       },
       quartaFeira: {
-        abre: selection.horário.quartaFeira ? selection.horário.quartaFeira[0] : '',
-        fecha: selection.horário.quartaFeira ? selection.horário.quartaFeira[1] : '',
+        abre: selection.horário['quarta-feira'] ? selection.horário['quarta-feira'][0] : '',
+        fecha: selection.horário['quarta-feira'] ? selection.horário['quarta-feira'][1] : '',
       },
       quintaFeira: {
-        abre: selection.horário.quintaFeira ? selection.horário.quintaFeira[0] : '',
-        fecha: selection.horário.quintaFeira ? selection.horário.quintaFeira[1] : '',
+        abre: selection.horário['quinta-feira'] ? selection.horário['quinta-feira'][0] : '',
+        fecha: selection.horário['quinta-feira'] ? selection.horário['quinta-feira'][1] : '',
       },
       sextaFeira: {
-        abre: selection.horário.sextaFeira ? selection.horário.sextaFeira[0] : '',
-        fecha: selection.horário.sextaFeira ? selection.horário.sextaFeira[1] : '',
+        abre: selection.horário['sexta-feira'] ? selection.horário['sexta-feira'][0] : '',
+        fecha: selection.horário['sexta-feira'] ? selection.horário['sexta-feira'][1] : '',
       },
       sábado: {
         abre: selection.horário.sábado ? selection.horário.sábado[0] : '',

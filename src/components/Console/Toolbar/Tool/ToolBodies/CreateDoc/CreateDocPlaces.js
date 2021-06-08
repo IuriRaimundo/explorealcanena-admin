@@ -58,6 +58,7 @@ function CreateDocPlaces({ setAllowSubmit, setToolResult }) {
   useEffect(() => {
     if (validateInput(formInput, 'local')) {
       setAllowSubmit(true);
+      console.log(formInput);
       setToolResult(formInput);
     } else {
       setAllowSubmit(false);
