@@ -7,7 +7,6 @@ import ServicesInput from './ServicesInput';
 import ScheduleInput from './ScheduleInput';
 
 function UpdateDocPlaces({ setAllowSubmit, setToolResult, selection }) {
-  console.log(selection.horário);
   const [formInput, setFormInput] = useState({
     id: selection.id,
     nome: selection.nome,

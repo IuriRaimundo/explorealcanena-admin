@@ -122,7 +122,6 @@ function verifyLocal(data) {
   // Verificar horário
   if (data.hasOwnProperty('horário')) {
     if (typeof data.horário !== 'object') {
-      console.log('failed here3');
       valid = false;
       return valid;
     }
@@ -139,12 +138,10 @@ function verifyLocal(data) {
 
       if (abre.length !== 0 && fecha.length !== 0) {
         if (!abre.includes(':') || !fecha.includes(':') || abre.length <= 3 || fecha.length <= 3) {
-          console.log('failed here');
           valid = false;
           return;
         }
       } else if (abre.length !== 0 || fecha.length !== 0) {
-        console.log('faild here1');
         valid = false;
         return;
       }

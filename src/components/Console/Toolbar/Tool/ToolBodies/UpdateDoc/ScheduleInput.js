@@ -1,7 +1,6 @@
 import React from 'react';
 
 function ScheduleInput({ formInput, setFormInput }) {
-  console.log(formInput.horário);
   return (
     <li className='form-schedule-inputs'>
       <h2>Horário</h2>
@@ -17,7 +16,6 @@ function ScheduleInput({ formInput, setFormInput }) {
 }
 
 function ScheduleDay({ text, objKey, formInput, setFormInput }) {
-  console.log(formInput.horário[objKey].abre);
   return (
     <div>
       <h3>{text}</h3>
