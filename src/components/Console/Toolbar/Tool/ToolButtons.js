@@ -8,7 +8,7 @@ import { useConsoleContext, useAuthContext, request } from '../../../../utils/ut
 function ToolButtons({ setOpenTool, allowSubmit, setAllowSubmit, text, action }) {
   const [redirect, setRedirect] = useState(false);
   const { token } = useAuthContext();
-  const { type, setDocuments } = useConsoleContext();
+  const { type, setDocuments, changeSelection, selection } = useConsoleContext();
   const [feedback, setFeedback] = useState({
     type: '',
     message: '',
@@ -38,20 +38,22 @@ function ToolButtons({ setOpenTool, allowSubmit, setAllowSubmit, text, action })
               request('GET', type, null, token).then((response) => {
                 setDocuments(response);
               });
-              setTimeout(() => setOpenTool(false), 2000);
+              setTimeout(() => {
+                setOpenTool(false);
+                // Limpar seleção
+                changeSelection(selection);
+              }, 2000);
             })
             .catch((err) => {
               if (err === 'Token inválido.') setRedirect(true);
               setFeedback({ type: 'error', message: err });
               // Remover mensagem
-              setTimeout(
-                () =>
-                  setFeedback({
-                    type: '',
-                    message: '',
-                  }),
-                5000
-              );
+              setTimeout(() => {
+                setFeedback({
+                  type: '',
+                  message: '',
+                });
+              }, 5000);
             });
         }}
       >
