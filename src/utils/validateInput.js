@@ -9,6 +9,7 @@ function verifyLocal(data) {
     facebook: '',
     telefone: '',
     booking: '',
+    imagensGrandes: '',
     coordenadas: {
       lat: '',
       long: '',
@@ -52,6 +53,7 @@ function verifyLocal(data) {
     nome: '',
     morada: '',
     descrição: '',
+    imagensGrandes: '',
     categorias: [],
     coordenadas: {
       lat: '',
@@ -76,6 +78,12 @@ function verifyLocal(data) {
       return valid;
     }
   });
+
+  // Verificar número de imagens
+  if (isNaN(parseInt(data.imagensGrandes)) || data.imagensGrandes < 1 || data.imagensGrandes > 5) {
+    valid = false;
+    return valid;
+  }
 
   // Verificar categorias
   const categorias = ['natureza', 'jardins-e-miradouros', 'cultura', 'restaurantes', 'pastelarias', 'cafés', 'alojamento'];

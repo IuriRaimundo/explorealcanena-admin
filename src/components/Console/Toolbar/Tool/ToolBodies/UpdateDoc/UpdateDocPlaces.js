@@ -17,6 +17,7 @@ function UpdateDocPlaces({ setAllowSubmit, setToolResult, selection }) {
     facebook: selection.facebook,
     telefone: selection.telefone,
     booking: selection.booking,
+    imagensGrandes: selection.imagensGrandes,
     coordenadas: {
       lat: selection.coordenadas[0],
       long: selection.coordenadas[1],
@@ -131,6 +132,16 @@ function UpdateDocPlaces({ setAllowSubmit, setToolResult, selection }) {
                 onChange={(e) => setFormInput({ ...formInput, coordenadas: { ...formInput.coordenadas, long: e.target.value } })}
               />
             </div>
+          </li>
+          <li>
+            <label htmlFor='imagens'>Nº de imagens grandes (1-5) *</label>
+            <input
+              type='text'
+              style={{ width: '3rem' }}
+              placeholder='1'
+              defaultValue={formInput.imagensGrandes}
+              onChange={(e) => setFormInput({ ...formInput, imagensGrandes: e.target.value })}
+            />
           </li>
           <li>
             <label htmlFor='email'>Email</label>

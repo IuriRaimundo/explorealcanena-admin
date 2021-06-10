@@ -17,6 +17,7 @@ function CreateDocPlaces({ setAllowSubmit, setToolResult }) {
     facebook: '',
     telefone: '',
     booking: '',
+    imagensGrandes: '',
     coordenadas: {
       lat: '',
       long: '',
@@ -113,6 +114,15 @@ function CreateDocPlaces({ setAllowSubmit, setToolResult }) {
                 onChange={(e) => setFormInput({ ...formInput, coordenadas: { ...formInput.coordenadas, long: e.target.value } })}
               />
             </div>
+          </li>
+          <li>
+            <label htmlFor='imagens'>Nº de imagens grandes (1-5) *</label>
+            <input
+              type='text'
+              style={{ width: '3rem' }}
+              placeholder='1'
+              onChange={(e) => setFormInput({ ...formInput, imagensGrandes: e.target.value })}
+            />
           </li>
           <li>
             <label htmlFor='email'>Email</label>
