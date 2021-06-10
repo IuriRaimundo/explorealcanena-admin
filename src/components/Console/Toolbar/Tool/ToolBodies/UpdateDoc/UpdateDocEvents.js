@@ -30,19 +30,6 @@ function UpdateDocEvents({ setToolResult, setAllowSubmit, selection }) {
         <p>* Os campos vazios serão apagados do documento com excessão das imagens.</p>
         <ul>
           <li>
-            <label htmlFor='id'>Id *</label>
-            <input
-              type='text'
-              name='id'
-              style={{
-                maxWidth: '13rem',
-                width: '70%',
-              }}
-              defaultValue={selection.id}
-              onChange={(e) => setFormInput({ ...formInput, id: e.target.value })}
-            />
-          </li>
-          <li>
             <label htmlFor='nome'>Nome *</label>
             <input
               type='text'

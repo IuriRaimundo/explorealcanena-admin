@@ -72,19 +72,6 @@ function UpdateDocPlaces({ setAllowSubmit, setToolResult, selection }) {
         <p>* Os campos vazios serão apagados do documento.</p>
         <ul>
           <li>
-            <label htmlFor='id'>Id *</label>
-            <input
-              type='text'
-              name='id'
-              style={{
-                maxWidth: '13rem',
-                width: '70%',
-              }}
-              defaultValue={formInput.id}
-              onChange={(e) => setFormInput({ ...formInput, id: e.target.value })}
-            />
-          </li>
-          <li>
             <label htmlFor='nome'>Nome *</label>
             <input
               type='text'
