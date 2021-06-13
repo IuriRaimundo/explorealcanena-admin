@@ -9,7 +9,6 @@ function App() {
   // Verificar validade da sessão a cada 5 segundos e refrescar a página caso o token esteja expirado
   (function verifyTokenExpireDate() {
     setTimeout(() => {
-      console.log('timeout');
       const now = new Date().getTime();
       const expireTime = 1; // valor em horas
       const setupTime = localStorage.getItem('setupTime');
