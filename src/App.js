@@ -6,20 +6,24 @@ import Dashboard from './components/Dashboard/Dashboard';
 import { AuthContextProvider } from './utils/AuthContext';
 
 function App() {
-  // Verificar validade da sessão a cada 10 segundos e refrescar a página caso o token esteja expirado
-  setTimeout(() => {
-    const now = new Date().getTime();
-    const expireTime = 1; // valor em horas
-    const setupTime = localStorage.getItem('setupTime');
-    if (setupTime) {
-      if (now - setupTime > expireTime * 60 * 60 * 1000) {
-        localStorage.clear();
+  // Verificar validade da sessão a cada 5 segundos e refrescar a página caso o token esteja expirado
+  (function verifyTokenExpireDate() {
+    setTimeout(() => {
+      console.log('timeout');
+      const now = new Date().getTime();
+      const expireTime = 1; // valor em horas
+      const setupTime = localStorage.getItem('setupTime');
+      if (setupTime) {
+        if (now - setupTime > expireTime * 60 * 60 * 1000) {
+          localStorage.clear();
+          window.location.reload();
+        }
+      } else if (window.location.pathname !== '/login') {
         window.location.reload();
       }
-    } else if (window.location.pathname !== '/login') {
-      window.location.reload();
-    }
-  }, 5000);
+      verifyTokenExpireDate();
+    }, 5000);
+  })();
 
   return (
     <AuthContextProvider>
